@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
         groundLayer = LayerMask.GetMask("Default");
     }
 
-    void Update()
+    void FixedUpdate()
     {
         var moveVert = Input.GetAxis("Vertical") * Time.deltaTime * moveSpeed;
         var moveHoriz = Input.GetAxis("Horizontal") * Time.deltaTime * moveSpeed;

@@ -32,7 +32,6 @@ public class PlayerController : MonoBehaviour
         if (IsGrounded() && Input.GetButtonDown("Jump"))
         {
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-            Debug.Log("Jump button pressed");
         }
     }
 

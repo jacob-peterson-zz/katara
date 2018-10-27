@@ -5,10 +5,69 @@ ModelImporter:
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
+    2300000: //RootNode
+    3300000: //RootNode
     4300000: House
+    6400000: //RootNode
+    7400000: Default Take
     11100000: //RootNode
     2186277476908879412: ImportLogs
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House
+    second: {fileID: 2100000, guid: 09f8cff74b624374a8224e1a56b528a3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House__DirtyPlaster_jpg
+    second: {fileID: 2100000, guid: f6c31b5841a4b3543b19f0b749264b5e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House__EndGrain_jpg
+    second: {fileID: 2100000, guid: 355c5669dae652548bb4daa8eae208f6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House__RooftilesWood0032_13_
+    second: {fileID: 2100000, guid: 297c927677ebaa94ea9d7c82501772e8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House__UnderHouseBrick_jpg
+    second: {fileID: 2100000, guid: 94d9d11ddb643474e8b13abc44c35f56, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House__WoodPlanksFloors0010_
+    second: {fileID: 2100000, guid: 226ae656fcb48ac4da86ecb499b54561, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House__WoodRough0089_19_M_jp
+    second: {fileID: 2100000, guid: a5af2578b921af44e9b2d0d9f0ed0d44, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House__WoodRough0089_19__000
+    second: {fileID: 2100000, guid: a5af2578b921af44e9b2d0d9f0ed0d44, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House__map_jpg
+    second: {fileID: 2100000, guid: 8b4cce2b1c29ef3468b19060415a2835, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House__map_jpg_001
+    second: {fileID: 2100000, guid: 8b4cce2b1c29ef3468b19060415a2835, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Roof__RooftilesWood0032_13_
+    second: {fileID: 2100000, guid: 297c927677ebaa94ea9d7c82501772e8, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

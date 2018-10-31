@@ -149,12 +149,14 @@ public class Inventory : MonoBehaviour
     public void closeInventory()
     {
         this.gameObject.SetActive(false);
+        Time.timeScale = 1f;
         checkIfAllInventoryClosed();
     }
 
     public void openInventory()
     {
         this.gameObject.SetActive(true);
+        Time.timeScale = 0f;
         if (InventoryOpen != null)
             InventoryOpen();
     }

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.496413, b: 0.5748175, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -356,8 +356,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 16099839}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 533.5, y: -100.04939, z: -1271.875}
+  m_LocalRotation: {x: -0.014048118, y: 0.8967134, z: 0.02853539, w: 0.44146746}
+  m_LocalPosition: {x: 108.66553, y: 109.52172, z: 179.45251}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -25674,6 +25674,16 @@ Prefab:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 114830972163975004, guid: ef216f7ebaaeaf646b722cd90a1bbc69,
+        type: 2}
+      propertyPath: activeRace.name
+      value: o3n Male
+      objectReference: {fileID: 0}
+    - target: {fileID: 114830972163975004, guid: ef216f7ebaaeaf646b722cd90a1bbc69,
+        type: 2}
+      propertyPath: context
+      value: 
+      objectReference: {fileID: 1514798489}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ef216f7ebaaeaf646b722cd90a1bbc69, type: 2}
   m_IsPrefabParent: 0
@@ -25864,6 +25874,12 @@ Transform:
 Transform:
   m_PrefabParentObject: {fileID: 433404, guid: 5cd8c9e8157360648bf43e9188816395, type: 2}
   m_PrefabInternal: {fileID: 1222852284}
+--- !u!114 &1514798489 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11470452, guid: 9c8f8bc536e91f84c9016133ba07be5a,
+    type: 2}
+  m_PrefabInternal: {fileID: 1278112473}
+  m_Script: {fileID: 11500000, guid: 1c0397d804a50934daade4356186eaf9, type: 3}
 --- !u!4 &1517216614 stripped
 Transform:
   m_PrefabParentObject: {fileID: 433404, guid: 5cd8c9e8157360648bf43e9188816395, type: 2}

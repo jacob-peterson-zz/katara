@@ -32,29 +32,21 @@ public class UmaRandomizer : MonoBehaviour {
     {
         if (ready)
         {
-            float value = 0f;
-            value = Random.Range(-1.0f, 1.0f);
-            if (value < 0)
-            {
-                avatar.ChangeRace("HumanFemaleDCS");
-                avatar.BuildCharacter();
-            }
-
             dna = avatar.GetDNA();
-
-            string[] part = { "height", /*"headSize",*/ "headWidth", "neckThickness", /*"armLength",*/ "forearmWidth", /*"handsSize",*/
-                              /*"feetSize",*/ "legSeparation", "upperMuscle", "lowerMuscle", "upperWeight", "lowerWeight",
-                              /*"legsSize",*/ "belly", "waist", "gluteusSize", "earsSize", "earsPosition", "earsRotation",
-                              "noseSize", "noseCurve", "noseWidth", "noseInclination", "nosePosition", "nosePronounced",
-                              "noseFlatten", "chinSize", "chinPronounced", "chinPosition", "mandibleSize", "jawsSize",
-                              "jawsPosition", "cheekSize", "cheekPosition", "lowCheekPronounced", "lowCheekPosition",
-                              "foreheadSize", "foreheadPosition", "lipsSize", "mouthSize", "eyeRotation", "eyeSize",
-                              "breastSize" };
-
-            for (int i = 0; i < part.Length; i++)
+            float value;
+            foreach (KeyValuePair<string, DnaSetter> entry in dna)
             {
-                value = Random.Range(0.0f, 1.0f);
-                dna[part[i]].Set(value);
+                float u1 = Random.Range(0f, 1f); //uniform(0,1) random floats
+                float u2 = Random.Range(0f, 1f);
+                value = Mathf.Sqrt(-2.0f * Mathf.Log(u1)) *
+                        Mathf.Sin(2.0f * Mathf.PI * u2); //random normal(0,1) using box mueller's method
+
+                //bring values inside needed range
+                value += 3.5f;
+                Mathf.Clamp(value, 0.0f, 3.5f);
+                value = value / 7.0f;
+
+                entry.Value.Set(value);
             }
 
             avatar.BuildCharacter();

@@ -8,8 +8,8 @@ public class CamController : MonoBehaviour {
 		private Vector3 height;
 
     public float distance = 5.0f;
-    public float rSpeed = 5.0f; //player rotation speed
-    public float oSpeed = 120.0f; //camera orbit speed
+    public float rotationalSpeed = 5.0f; //player rotation speed
+    public float orbitSpeed = 120.0f; //camera orbit speed
 
     public float yMinLimit = -20f;
     public float yMaxLimit = 80f;
@@ -33,6 +33,10 @@ public class CamController : MonoBehaviour {
         height.x = 0;
         height.y *= 2;
         height.z = 0;
+
+        float rSpeed = rotationalSpeed * Time.timeScale;
+
+        float oSpeed = orbitSpeed * Time.timeScale;
 
         //free look vs the normal camera
         if (Input.GetKey(KeyCode.LeftAlt))

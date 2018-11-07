@@ -13,6 +13,7 @@
           <e p="GateScript.cs" t="Include" />
           <e p="MoveController.cs" t="Include" />
           <e p="PersistObject.cs" t="Include" />
+          <e p="SkeletonHand.cs" t="Include" />
           <e p="UmaRandomizer.cs" t="Include" />
         </e>
         <e p="Foliage Free" t="Include">
@@ -98,11 +99,34 @@
             <e p="CameraDefault.cs" t="Include" />
           </e>
         </e>
+        <e p="o3n" t="Include">
+          <e p="o3nBaseUMARaces" t="Include">
+            <e p="Materials" t="Include">
+              <e p="o3n_Modified_Standard_Double_Sided.shader" t="Include" />
+              <e p="o3n_Skin_FFS_Variant_Shader.shader" t="Include" />
+            </e>
+            <e p="Races" t="Include">
+              <e p="common" t="Include">
+                <e p="TwistScripts" t="Include">
+                  <e p="O3nArmLowerLegTwistSlotScript.cs" t="Include" />
+                  <e p="O3nShoulderUpperLegTwistSlotScript.cs" t="Include" />
+                  <e p="O3nTwistBone.cs" t="Include" />
+                </e>
+              </e>
+            </e>
+            <e p="Readme.txt" t="Include" />
+          </e>
+        </e>
         <e p="RainEntertainment" t="Include">
           <e p="FantasyMonster" t="Include">
             <e p="DarkDragon" t="Include">
               <e p="Readme.txt" t="Include" />
             </e>
+          </e>
+        </e>
+        <e p="Scripts" t="Include">
+          <e p="AI" t="Include">
+            <e p="AdvancedPatrolScriptA.cs" t="Include" />
           </e>
         </e>
         <e p="Standard Assets" t="Include">

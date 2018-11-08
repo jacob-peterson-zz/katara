@@ -11,7 +11,7 @@ public class AdvancedPatrolScriptA : MonoBehaviour
 
     private int destPoint = 0;
     private float walkSpeed = 1f;
-    //private float runSpeed = 2f;
+    private float runSpeed = 2f;
     private float turnSpeed = 5f;
     public float attackDist = 1.3f;
 
@@ -39,7 +39,7 @@ public class AdvancedPatrolScriptA : MonoBehaviour
         float distance = Vector3.Distance(transform.position, player.transform.position);
 
 
-        if (playerSpotted)
+        if (distance < 10)
         {
 
             if (distance < attackDist)
@@ -53,6 +53,7 @@ public class AdvancedPatrolScriptA : MonoBehaviour
             }
             else
             {
+                agent.speed = runSpeed;
                 agent.destination = player.transform.position;
                 Vector3 relativePos = player.transform.position - transform.position;
                 //Quaternion rotation = Quaternion.LookRotation(relativePos, Vector3.up);
@@ -60,29 +61,16 @@ public class AdvancedPatrolScriptA : MonoBehaviour
             }
         }
         else if (!agent.pathPending && agent.remainingDistance < 0.5f)
+        {
             GotoNextPoint();
+            agent.speed = walkSpeed;
+        }
+        else
+        {
+            agent.speed = walkSpeed;
+        }
 
         anim.SetFloat("Speed", agent.velocity.magnitude);
-    }
-
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.name == "Player")
-        {
-            playerSpotted = true;
-            patrolling = false;
-            //agent.speed = runSpeed;
-        }
-    }
-
-    void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.name == "Player")
-        {
-            playerSpotted = false;
-            patrolling = true;
-            //agent.speed = walkSpeed;
-        }
     }
 
     void GotoNextPoint()

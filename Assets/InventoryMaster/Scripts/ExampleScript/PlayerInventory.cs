@@ -189,9 +189,12 @@ public class PlayerInventory : MonoBehaviour
 
     void UpdateHPBar()
     {
-        hpText.text = (currentHealth + "/" + maxHealth);
-        float fillAmount = currentHealth / maxHealth;
-        hpImage.fillAmount = fillAmount;
+        if (currentHealth >= 0)
+        {
+            hpText.text = (currentHealth + "/" + maxHealth);
+            float fillAmount = currentHealth / maxHealth;
+            hpImage.fillAmount = fillAmount;
+        }
     }
 
     //void UpdateManaBar()

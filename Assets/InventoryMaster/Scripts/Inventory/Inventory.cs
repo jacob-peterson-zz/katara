@@ -27,16 +27,16 @@ public class Inventory : MonoBehaviour
     private ItemDataBaseList itemDatabase;
 
     //GameObjects which are alive
-    //[SerializeField]
-    //private string inventoryTitle;
+    [SerializeField]
+    private string inventoryTitle;
     [SerializeField]
     private RectTransform PanelRectTransform;
     [SerializeField]
     private Image PanelImage;
     [SerializeField]
     private GameObject SlotContainer;
-    //[SerializeField]
-    //private GameObject DraggingItemContainer;
+    [SerializeField]
+    private GameObject DraggingItemContainer;
     [SerializeField]
     private RectTransform SlotContainerRectTransform;
     [SerializeField]
@@ -55,8 +55,8 @@ public class Inventory : MonoBehaviour
     public int width;
     [SerializeField]
     public bool stackable;
-    //[SerializeField]
-    //public static bool inventoryOpen;
+    [SerializeField]
+    public static bool inventoryOpen;
 
 
     //GUI Settings
@@ -82,6 +82,8 @@ public class Inventory : MonoBehaviour
     public int positionNumberY;
 
     InputManager inputManagerDatabase;
+
+    private int inventoryCount = 0;
 
     //event delegates for consuming, gearing
     public delegate void ItemDelegate(Item item);
@@ -130,6 +132,7 @@ public class Inventory : MonoBehaviour
     void Update()
     {
         updateItemIndex();
+        Time.timeScale = inventoryCount > 0 || CombatStats.storageOpen ? 0f : 1f;
     }
 
 
@@ -149,16 +152,17 @@ public class Inventory : MonoBehaviour
     public void closeInventory()
     {
         this.gameObject.SetActive(false);
-        Time.timeScale = 1f;
+        inventoryCount--;
         checkIfAllInventoryClosed();
     }
 
     public void openInventory()
     {
         this.gameObject.SetActive(true);
-        Time.timeScale = 0f;
         if (InventoryOpen != null)
             InventoryOpen();
+
+        inventoryCount++;
     }
 
     public void checkIfAllInventoryClosed()

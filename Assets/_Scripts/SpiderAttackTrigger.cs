@@ -20,7 +20,7 @@ public class SpiderAttackTrigger : MonoBehaviour {
             spiderAnimator.GetCurrentAnimatorClipInfo(0)[0].clip.name == "attack1" &&
             Time.time > lastPunchTime + 1)
         {
-            CombatConstants.playerHealth -= CombatConstants.spiderAttackDamage;
+            CombatStats.playerHealth -= CombatStats.spiderAttackDamage;
             lastPunchTime = Time.time;
         }
     }

@@ -19,7 +19,7 @@ public class SkeletonHand : MonoBehaviour {
             skeletonAnimator.GetCurrentAnimatorClipInfo(0)[0].clip.name == "Punching" &&
             Time.time > lastPunchTime + 1)
         {
-            CombatConstants.playerHealth -= CombatConstants.skeletonAttackDamage;
+            CombatStats.playerHealth -= CombatStats.skeletonAttackDamage;
             lastPunchTime = Time.time;
         }
     }

@@ -47,7 +47,7 @@ namespace _Scripts
             if (distance < 10)
             {
 
-                if (distance < attackDist)
+                if (distance <= attackDist)
                 {
                     agent.destination = transform.position;
                     agent.speed = 0f;

@@ -9,12 +9,13 @@
         <e p="_Scripts" t="Include">
           <e p="AnimeController.cs" t="Include" />
           <e p="CamController.cs" t="Include" />
-          <e p="CombatConstants.cs" t="Include" />
+          <e p="CombatStats.cs" t="Include" />
           <e p="FrontGateController.cs" t="Include" />
           <e p="GateScript.cs" t="Include" />
           <e p="MoveController.cs" t="Include" />
           <e p="PersistObject.cs" t="Include" />
           <e p="PlayerInventory.cs" t="Include" />
+          <e p="RandomChestLootSystem.cs" t="Include" />
           <e p="SkeletonController.cs" t="Include" />
           <e p="SkeletonHand.cs" t="Include" />
           <e p="SpiderAttackTrigger.cs" t="Include" />
@@ -34,6 +35,7 @@
             <e p="HotbarEditor.cs" t="Include" />
             <e p="IM_Manager.cs" t="Include" />
             <e p="InventoryDesignEditor.cs" t="Include" />
+            <e p="InventoryEditor.cs" t="Include" />
             <e p="StorageInventoryEditor.cs" t="Include" />
             <e p="TooltipEditor.cs" t="Include" />
           </e>
@@ -48,7 +50,6 @@
               <e p="RightClick.cs" t="Include" />
             </e>
             <e p="ExampleScript" t="Include">
-              <e p="RandomChestLootSystem.cs" t="Include" />
               <e p="RandomLootSystem.cs" t="Include" />
               <e p="WorkingStation.cs" t="Include" />
             </e>
@@ -93,6 +94,13 @@
           </e>
           <e p="Shaders" t="Include">
             <e p="doublesidedshader.shader" t="Include" />
+          </e>
+        </e>
+        <e p="Low Polygon Potions Pack" t="Include">
+          <e p="Other Assets" t="Include">
+            <e p="Scripts" t="Include">
+              <e p="CreatePrefabFromSelected.cs" t="Include" />
+            </e>
           </e>
         </e>
         <e p="MedievalHouse" t="Include">

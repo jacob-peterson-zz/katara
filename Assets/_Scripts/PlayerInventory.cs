@@ -182,17 +182,21 @@ namespace _Scripts
             if (characterSystem != null)
                 characterSystemInventory = characterSystem.GetComponent<Inventory>();
             if (craftSystem != null)
-                craftSystemInventory = craftSystem.GetComponent<Inventory>();
-            mainInventory.addItemToInventory(0);
+                craftSystemInventory = craftSystem.GetComponent<Inventory>();            
+            
         }
 
         void UpdateHPBar()
         {
-            if (CombatConstants.playerHealth >= 0)
+            if (CombatStats.playerHealth >= 0)
             {
-                hpText.text = (CombatConstants.playerHealth + "/" + maxHealth);
-                float fillAmount = CombatConstants.playerHealth / maxHealth;
+                hpText.text = (CombatStats.playerHealth + "/" + maxHealth);
+                float fillAmount = CombatStats.playerHealth / maxHealth;
                 hpImage.fillAmount = fillAmount;
+            }
+            else
+            {
+                CombatStats.playerHealth = 0;
             }
         }
 
@@ -206,42 +210,69 @@ namespace _Scripts
 
         public void OnConsumeItem(Item item)
         {
-            for (int i = 0; i < item.itemAttributes.Count; i++)
+            // Item attributes is broken
+            if (item.itemName == "Small Health Pot")
             {
-                if (item.itemAttributes[i].attributeName == "Health")
+                if ((CombatStats.playerHealth + CombatStats.smallPotHealth) > maxHealth)
+                    CombatStats.playerHealth = maxHealth;
+                else
                 {
-                    if ((CombatConstants.playerHealth + item.itemAttributes[i].attributeValue) > maxHealth)
-                        CombatConstants.playerHealth = maxHealth;
-                    else
-                        CombatConstants.playerHealth += item.itemAttributes[i].attributeValue;
-                }
-                if (item.itemAttributes[i].attributeName == "Mana")
-                {
-                    if ((currentMana + item.itemAttributes[i].attributeValue) > maxMana)
-                        currentMana = maxMana;
-                    else
-                        currentMana += item.itemAttributes[i].attributeValue;
-                }
-                if (item.itemAttributes[i].attributeName == "Armor")
-                {
-                    if ((currentArmor + item.itemAttributes[i].attributeValue) > maxArmor)
-                        currentArmor = maxArmor;
-                    else
-                        currentArmor += item.itemAttributes[i].attributeValue;
-                }
-                if (item.itemAttributes[i].attributeName == "Damage")
-                {
-                    if ((currentDamage + item.itemAttributes[i].attributeValue) > maxDamage)
-                        currentDamage = maxDamage;
-                    else
-                        currentDamage += item.itemAttributes[i].attributeValue;
+                    CombatStats.playerHealth += CombatStats.smallPotHealth;
                 }
             }
+
+            if (item.itemName == "Big Health Pot")
+            {
+                if ((CombatStats.playerHealth + CombatStats.bigPotHealth) > maxHealth)
+                    CombatStats.playerHealth = maxHealth;
+                else
+                {
+                    CombatStats.playerHealth += CombatStats.bigPotHealth;
+                }
+            }
+
             if (HPMANACanvas != null)
             {
 //            UpdateManaBar();
                 UpdateHPBar();
             }
+            
+//            print("On consume item = " + item.itemName);
+//            for (int i = 0; i < item.itemAttributes.Count; i++)
+//            {
+//                if (item.itemAttributes[i].attributeName == "Health")
+//                {
+//                    print("item attribute = " + item.itemAttributes[i].attributeName);
+//                    if ((CombatConstants.playerHealth + item.itemAttributes[i].attributeValue) > maxHealth)
+//                        CombatConstants.playerHealth = maxHealth;
+//                    else
+//                    {
+//                        print("healing");
+//                        CombatConstants.playerHealth += item.itemAttributes[i].attributeValue;
+//                    }
+//                }
+//                if (item.itemAttributes[i].attributeName == "Mana")
+//                {
+//                    if ((currentMana + item.itemAttributes[i].attributeValue) > maxMana)
+//                        currentMana = maxMana;
+//                    else
+//                        currentMana += item.itemAttributes[i].attributeValue;
+//                }
+//                if (item.itemAttributes[i].attributeName == "Armor")
+//                {
+//                    if ((currentArmor + item.itemAttributes[i].attributeValue) > maxArmor)
+//                        currentArmor = maxArmor;
+//                    else
+//                        currentArmor += item.itemAttributes[i].attributeValue;
+//                }
+//                if (item.itemAttributes[i].attributeName == "Damage")
+//                {
+//                    if ((currentDamage + item.itemAttributes[i].attributeValue) > maxDamage)
+//                        currentDamage = maxDamage;
+//                    else
+//                        currentDamage += item.itemAttributes[i].attributeValue;
+//                }
+//            }
         }
 
         public void OnGearItem(Item item)

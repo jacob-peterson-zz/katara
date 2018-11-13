@@ -62,11 +62,11 @@ public class DragItem : MonoBehaviour, IDragHandler, IPointerDownHandler, IEndDr
 
     public void createDuplication(GameObject Item)
     {
-        Item item = Item.GetComponent<ItemOnObject>().item;
-        GameObject duplication = GameObject.FindGameObjectWithTag("MainInventory").GetComponent<Inventory>().addItemToInventory(item.itemID, item.itemValue);
-        duplication.transform.parent.parent.parent.GetComponent<Inventory>().stackableSettings();
-        Item.GetComponent<ConsumeItem>().duplication = duplication;
-        duplication.GetComponent<ConsumeItem>().duplication = Item;
+//        Item item = Item.GetComponent<ItemOnObject>().item;
+//        GameObject duplication = GameObject.FindGameObjectWithTag("MainInventory").GetComponent<Inventory>().addItemToInventory(item.itemID, item.itemValue);
+//        duplication.transform.parent.parent.parent.GetComponent<Inventory>().stackableSettings();
+//        Item.GetComponent<ConsumeItem>().duplication = duplication;
+//        duplication.GetComponent<ConsumeItem>().duplication = Item;
     }
 
     public void OnEndDrag(PointerEventData data)
@@ -605,9 +605,12 @@ public class DragItem : MonoBehaviour, IDragHandler, IPointerDownHandler, IEndDr
             else
             {
                 GameObject dropItem = (GameObject)Instantiate(GetComponent<ItemOnObject>().item.itemModel);
+                dropItem.AddComponent<Rigidbody>();
+                dropItem.AddComponent<MeshCollider>().convex = true;
                 dropItem.AddComponent<PickUpItem>();
                 dropItem.GetComponent<PickUpItem>().item = this.gameObject.GetComponent<ItemOnObject>().item;               
-                dropItem.transform.localPosition = GameObject.FindGameObjectWithTag("Player").transform.localPosition;
+                dropItem.transform.localPosition = GameObject.FindGameObjectWithTag("Player").transform.localPosition + 
+                                                   new Vector3(0f, 1f, 0f);
                 inventory.OnUpdateItemList();
                 if (oldSlot.transform.parent.parent.GetComponent<EquipmentSystem>() != null)
                     inventory.GetComponent<Inventory>().UnEquipItem1(dropItem.GetComponent<PickUpItem>().item);

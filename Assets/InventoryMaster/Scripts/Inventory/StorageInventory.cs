@@ -32,8 +32,10 @@ public class StorageInventory : MonoBehaviour
 
     public int itemAmount;
 
-    Tooltip tooltip;
+//    Tooltip tooltip;
     Inventory inv;
+
+    private Inventory playerInventory;
 
     GameObject player;
 
@@ -44,12 +46,16 @@ public class StorageInventory : MonoBehaviour
 
     bool showStorage;
 
+    private bool invReady = true;
+
     public void addItemToStorage(int id, int value)
     {
         Item item = itemDatabase.getItemByID(id);
         item.itemValue = value;
         storageItems.Add(item);
     }
+
+    private Animator chestAnimator;
 
     void Start()
     {
@@ -79,14 +85,18 @@ public class StorageInventory : MonoBehaviour
             }
         }
 
-        if (GameObject.FindGameObjectWithTag("Timer") != null)
-        {
-            timerImage = GameObject.FindGameObjectWithTag("Timer").GetComponent<Image>();
-            timer = GameObject.FindGameObjectWithTag("Timer");
-            timer.SetActive(false);
-        }
-        if (GameObject.FindGameObjectWithTag("Tooltip") != null)
-            tooltip = GameObject.FindGameObjectWithTag("Tooltip").GetComponent<Tooltip>();
+        playerInventory = GameObject.FindWithTag("MainInventory").GetComponent<Inventory>();
+
+        chestAnimator = GetComponent<Animator>();
+
+//        if (GameObject.FindGameObjectWithTag("Timer") != null)
+//        {
+//            timerImage = GameObject.FindGameObjectWithTag("Timer").GetComponent<Image>();
+//            timer = GameObject.FindGameObjectWithTag("Timer");
+//            timer.SetActive(false);
+//        }
+//        if (GameObject.FindGameObjectWithTag("Tooltip") != null)
+//            tooltip = GameObject.FindGameObjectWithTag("Tooltip").GetComponent<Tooltip>();
 
     }
 
@@ -111,7 +121,7 @@ public class StorageInventory : MonoBehaviour
             }
         }
 
-        if (distance <= distanceToOpenStorage && Input.GetKeyDown(inputManagerDatabase.StorageKeyCode))
+        if (distance <= distanceToOpenStorage && Input.GetKeyDown(inputManagerDatabase.StorageKeyCode) && invReady)
         {
             showStorage = !showStorage;
             StartCoroutine(OpenInventoryWithTimer());
@@ -127,7 +137,7 @@ public class StorageInventory : MonoBehaviour
                 inventory.SetActive(false);
                 inv.deleteAllItems();
             }
-            tooltip.deactivateTooltip();
+//            tooltip.deactivateTooltip();
             timerImage.fillAmount = 0;
             timer.SetActive(false);
             showTimer = false;
@@ -136,15 +146,23 @@ public class StorageInventory : MonoBehaviour
 
     IEnumerator OpenInventoryWithTimer()
     {
+        invReady = false;
         if (showStorage)
         {
             startTimer = Time.time;
             showTimer = true;
+            if (chestAnimator != null)
+            {
+                chestAnimator.SetBool("isChestOpen", true);
+            }
             yield return new WaitForSeconds(timeToOpenStorage);
             if (showStorage)
             {
+                
                 inv.ItemsInInventory.Clear();
                 inventory.SetActive(true);
+                playerInventory.openInventory();
+                CombatStats.storageOpen = true;
                 addItemsToInventory();
                 showTimer = false;
                 if (timer != null)
@@ -156,11 +174,17 @@ public class StorageInventory : MonoBehaviour
             storageItems.Clear();
             setListofStorage();
             inventory.SetActive(false);
+            CombatStats.storageOpen = false;
+            playerInventory.closeInventory();
             inv.deleteAllItems();
-            tooltip.deactivateTooltip();
+            if (chestAnimator != null)
+            {
+                chestAnimator.SetBool("isChestOpen", false);
+            }
+//            tooltip.deactivateTooltip();
         }
 
-
+        invReady = true;
     }
 
 
@@ -180,10 +204,4 @@ public class StorageInventory : MonoBehaviour
         }
         iV.stackableSettings();
     }
-
-
-
-
-
-
 }

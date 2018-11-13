@@ -3,7 +3,7 @@
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
@@ -16,6 +16,6 @@ MonoBehaviour:
   throwGrenade: 103
   SplitItem: 324
   InventoryKeyCode: 105
-  StorageKeyCode: 0
+  StorageKeyCode: 101
   CharacterSystemKeyCode: 9
   CraftSystemKeyCode: 0

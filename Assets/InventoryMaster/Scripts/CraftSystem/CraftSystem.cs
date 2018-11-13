@@ -5,6 +5,7 @@ using UnityEditor;
 #endif
 using UnityEngine.UI;
 using System.Collections.Generic;
+using _Scripts;
 
 public class CraftSystem : MonoBehaviour
 {

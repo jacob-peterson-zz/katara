@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using _Scripts;
 
 public class SkeletonHand : MonoBehaviour {
     private Animator skeletonAnimator;
@@ -18,7 +19,7 @@ public class SkeletonHand : MonoBehaviour {
             skeletonAnimator.GetCurrentAnimatorClipInfo(0)[0].clip.name == "Punching" &&
             Time.time > lastPunchTime + 1)
         {
-            PlayerInventory.currentHealth -= 10;
+            CombatConstants.playerHealth -= CombatConstants.skeletonAttackDamage;
             lastPunchTime = Time.time;
         }
     }

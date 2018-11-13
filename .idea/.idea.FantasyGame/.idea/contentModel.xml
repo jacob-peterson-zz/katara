@@ -9,12 +9,20 @@
         <e p="_Scripts" t="Include">
           <e p="AnimeController.cs" t="Include" />
           <e p="CamController.cs" t="Include" />
+          <e p="CombatConstants.cs" t="Include" />
           <e p="FrontGateController.cs" t="Include" />
           <e p="GateScript.cs" t="Include" />
           <e p="MoveController.cs" t="Include" />
           <e p="PersistObject.cs" t="Include" />
+          <e p="PlayerInventory.cs" t="Include" />
+          <e p="SkeletonController.cs" t="Include" />
           <e p="SkeletonHand.cs" t="Include" />
+          <e p="SpiderAttackTrigger.cs" t="Include" />
+          <e p="SpiderController.cs" t="Include" />
           <e p="UmaRandomizer.cs" t="Include" />
+        </e>
+        <e p="fantasySpider" t="Include">
+          <e p="FSP_ContinuousRotation.cs" t="Include" />
         </e>
         <e p="Foliage Free" t="Include">
           <e p="Readme.txt" t="Include" />
@@ -40,7 +48,6 @@
               <e p="RightClick.cs" t="Include" />
             </e>
             <e p="ExampleScript" t="Include">
-              <e p="PlayerInventory.cs" t="Include" />
               <e p="RandomChestLootSystem.cs" t="Include" />
               <e p="RandomLootSystem.cs" t="Include" />
               <e p="WorkingStation.cs" t="Include" />
@@ -122,11 +129,6 @@
             <e p="DarkDragon" t="Include">
               <e p="Readme.txt" t="Include" />
             </e>
-          </e>
-        </e>
-        <e p="Scripts" t="Include">
-          <e p="AI" t="Include">
-            <e p="AdvancedPatrolScriptA.cs" t="Include" />
           </e>
         </e>
         <e p="Standard Assets" t="Include">

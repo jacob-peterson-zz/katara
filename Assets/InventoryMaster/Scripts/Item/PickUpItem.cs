@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
+using _Scripts;
+
 public class PickUpItem : MonoBehaviour
 {
     public Item item;

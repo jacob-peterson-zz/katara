@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using System;
+using _Scripts;
 
 public class ConsumeItem : MonoBehaviour, IPointerDownHandler
 {

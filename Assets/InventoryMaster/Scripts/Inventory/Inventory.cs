@@ -153,6 +153,8 @@ public class Inventory : MonoBehaviour
     {
         this.gameObject.SetActive(false);
         inventoryCount--;
+        if (inventoryCount < 0)
+            inventoryCount = 0;
         checkIfAllInventoryClosed();
     }
 
@@ -744,6 +746,7 @@ public class Inventory : MonoBehaviour
                 {
                     RectTransform textRectTransform = SlotContainer.transform.GetChild(i).GetChild(0).GetChild(1).GetComponent<RectTransform>();
                     Text text = SlotContainer.transform.GetChild(i).GetChild(0).GetChild(1).GetComponent<Text>();
+                    text.alignment = TextAnchor.UpperRight;
                     text.text = "" + item.item.itemValue;
                     text.enabled = stackable;
                     textRectTransform.localPosition = new Vector3(positionNumberX, positionNumberY, 0);

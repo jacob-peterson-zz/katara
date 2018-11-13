@@ -35,7 +35,7 @@ public class StorageInventory : MonoBehaviour
 //    Tooltip tooltip;
     Inventory inv;
 
-    private Inventory playerInventory;
+//    private Inventory playerInventory;
 
     GameObject player;
 
@@ -85,7 +85,7 @@ public class StorageInventory : MonoBehaviour
             }
         }
 
-        playerInventory = GameObject.FindWithTag("MainInventory").GetComponent<Inventory>();
+//        playerInventory = GameObject.FindGameObjectWithTag("MainInventory").GetComponent<Inventory>();
 
         chestAnimator = GetComponent<Animator>();
 
@@ -161,7 +161,7 @@ public class StorageInventory : MonoBehaviour
                 
                 inv.ItemsInInventory.Clear();
                 inventory.SetActive(true);
-                playerInventory.openInventory();
+//                playerInventory.openInventory();
                 CombatStats.storageOpen = true;
                 addItemsToInventory();
                 showTimer = false;
@@ -175,7 +175,7 @@ public class StorageInventory : MonoBehaviour
             setListofStorage();
             inventory.SetActive(false);
             CombatStats.storageOpen = false;
-            playerInventory.closeInventory();
+//            playerInventory.closeInventory();
             inv.deleteAllItems();
             if (chestAnimator != null)
             {
